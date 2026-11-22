@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#F5F1EA" />
+  <meta name="robots" content="noindex" />
+  <title>MyFits beta</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <style>
+    :root { --green: #2F5D4A; --cream: #F5F1EA; --pink: #F2789F; --pink-ink: #4B1528; --blue: #E4ECF4; --sand: #EDE4D3; --lilac: #E6DEF0; --sage: #DCE8E0; --blush: #F7E1E6; --mint: #DDEFEA; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--cream); color: var(--green); font: 400 16px/1.5 "Outfit", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+    main { max-width: 880px; margin: 0 auto; padding: 20px 16px 56px; }
+    header { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .logo { font-weight: 600; font-size: 24px; }
+    .logo span { color: var(--pink); }
+    .langs { display: flex; gap: 2px; }
+    .langs button { font: inherit; font-weight: 500; text-transform: uppercase; background: none; border: 0; color: rgb(47 93 74 / 0.5); min-width: 44px; min-height: 44px; border-radius: 22px; cursor: pointer; }
+    .langs button[aria-pressed="true"] { color: var(--green); background: #fff; }
+    h1 { font-weight: 600; font-size: clamp(34px, 8vw, 60px); line-height: 1.04; letter-spacing: -0.02em; margin: 32px 0 12px; }
+    .lead { font-size: 18px; color: rgb(47 93 74 / 0.78); max-width: 600px; margin: 0; }
+    .cta { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; margin: 28px 0 8px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; border-radius: 12px; background: var(--green); color: var(--cream); font-weight: 500; font-size: 17px; text-decoration: none; }
+    .url { display: block; margin-top: 8px; font-size: 14px; color: rgb(47 93 74 / 0.6); word-break: break-all; }
+    .qr { display: flex; gap: 14px; align-items: center; background: #fff; border-radius: 24px; padding: 14px 18px 14px 14px; }
+    .qr img { width: 112px; height: 112px; display: block; }
+    .qr p { margin: 0; font-size: 14px; max-width: 170px; }
+    h2 { font-weight: 600; font-size: 24px; margin: 40px 0 14px; }
+    .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .feature { background: #fff; border-radius: 16px; padding: 14px 16px; display: flex; gap: 12px; }
+    .feature .ico { font-size: 22px; line-height: 1.2; }
+    .feature b { display: block; font-weight: 600; }
+    .feature span { font-size: 14px; color: rgb(47 93 74 / 0.75); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .card { border-radius: 24px; padding: 20px; }
+    .card h3 { margin: 0 0 10px; font-weight: 600; font-size: 18px; }
+    .card ol { margin: 0; padding-left: 20px; }
+    .card li { margin: 6px 0; }
+    .card small { display: block; margin-top: 10px; color: rgb(47 93 74 / 0.7); font-size: 13px; }
+    .blue { background: var(--blue); } .sand { background: var(--sand); } .lilac { background: var(--lilac); } .sage { background: var(--sage); } .blush { background: var(--blush); } .mint { background: var(--mint); }
+    .steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .steps li { counter-increment: s; background: #fff; border-radius: 12px; padding: 14px 16px 14px 52px; position: relative; }
+    .steps li::before { content: counter(s); position: absolute; left: 16px; top: 14px; width: 24px; height: 24px; border-radius: 50%; background: var(--green); color: var(--cream); font-size: 13px; font-weight: 600; display: grid; place-items: center; }
+    b { font-weight: 600; }
+    .note { margin-top: 12px; border-radius: 12px; padding: 14px 16px; font-size: 15px; }
+    .note ul { margin: 6px 0 0; padding-left: 20px; }
+    kbd, code { font: inherit; font-weight: 500; background: #fff; border-radius: 6px; padding: 1px 6px; }
+    @media (max-width: 720px) {
+      .grid, .features { grid-template-columns: 1fr; }
+      .qr { display: none; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="logo">MyFits<span>.</span></div>
+    <div class="langs" role="group" aria-label="Language">
+      <button type="button" data-lang="en">en</button>
+      <button type="button" data-lang="fr">fr</button>
+      <button type="button" data-lang="de">de</button>
+    </div>
+  </header>
+
+  <h1 data-t="h1"></h1>
+  <p class="lead" data-t="lead"></p>
+
+  <div class="cta">
+    <div>
+      <a class="btn" href="../" data-t="open"></a>
+      <span class="url">erkanlux.github.io/myfits</span>
+    </div>
+    <div class="qr">
+      <img src="qr.png" alt="QR code" />
+      <p data-t="qr"></p>
+    </div>
+  </div>
+
+  <h2 data-t="whatTitle"></h2>
+  <div class="features">
+    <div class="feature"><div class="ico">👗</div><div><b data-t="f1t"></b><span data-t="f1"></span></div></div>
+    <div class="feature"><div class="ico">🌦️</div><div><b data-t="f2t"></b><span data-t="f2"></span></div></div>
+    <div class="feature"><div class="ico">📸</div><div><b data-t="f3t"></b><span data-t="f3"></span></div></div>
+    <div class="feature"><div class="ico">✨</div><div><b data-t="f4t"></b><span data-t="f4"></span></div></div>
+    <div class="feature"><div class="ico">📏</div><div><b data-t="f5t"></b><span data-t="f5"></span></div></div>
+    <div class="feature"><div class="ico">🧺</div><div><b data-t="f6t"></b><span data-t="f6"></span></div></div>
+    <div class="feature"><div class="ico">🧠</div><div><b data-t="f7t"></b><span data-t="f7"></span></div></div>
+    <div class="feature"><div class="ico">🔒</div><div><b data-t="f8t"></b><span data-t="f8"></span></div></div>
+  </div>
+
+  <h2 data-t="installTitle"></h2>
+  <div class="grid">
+    <section class="card blue"><h3>Android</h3><ol><li data-t="a1"></li><li data-t="a2"></li><li data-t="a3"></li></ol></section>
+    <section class="card sand"><h3>iPhone</h3><ol><li data-t="i1"></li><li data-t="i2"></li><li data-t="i3"></li></ol><small data-t="iNote"></small></section>
+    <section class="card lilac"><h3 data-t="dTitle"></h3><ol><li data-t="d1"></li><li data-t="d2"></li><li data-t="d3"></li></ol></section>
+  </div>
+
+  <h2 data-t="startTitle"></h2>
+  <ol class="steps">
+    <li data-t="s1"></li><li data-t="s2"></li><li data-t="s3"></li><li data-t="s4"></li><li data-t="s5"></li><li data-t="s6"></li>
+  </ol>
+
+  <div class="note mint" data-t="premium"></div>
+  <div class="note blush" data-t="privacy"></div>
+  <div class="note sage" data-t="feedback"></div>
+</main>
+<script>
+const T = {
+  en: {
+    h1: 'You’re invited to the MyFits beta',
+    lead: 'MyFits picks <b>3 outfits a day from your own wardrobe</b>, matched to the weather and to your work or weekend. Photograph your clothes once; every morning (or the evening before) your outfits are ready.',
+    open: 'Open MyFits', qr: 'On a computer? <b>Scan with your phone camera</b> to open MyFits there.',
+    whatTitle: 'What MyFits does',
+    f1t: '3 outfits, at your time', f1: 'A reminder at the time you choose. Pick an evening time and you get tomorrow’s outfits the night before.',
+    f2t: 'Real weather', f2: 'Uses the “feels like” temperature, rain and wind: a coat is added when you need one. “I’m often cold” makes outfits warmer.',
+    f3t: 'One photo, several pieces', f3: 'Photograph a whole outfit you’re wearing: each piece is found and added. Remove the background with a tap.',
+    f4t: 'Style this piece', f4: 'Want to wear your red skirt? Tap it and get 3 outfits built around it.',
+    f5t: 'My rules', f5: 'Type rules in your own words: “never the red top with the black trousers”, “no heels on Mondays”.',
+    f6t: 'In the wash', f6: 'Put a piece in the wash and it’s skipped for 3 days.',
+    f7t: 'Learns your taste', f7: '👍 / 👎, “I wore this” and “I wore something else” teach it what you like and rest what you just wore.',
+    f8t: 'Private', f8: 'Only you see your wardrobe. In English, French and German.',
+    installTitle: 'Install it on your phone (1 minute)',
+    a1: 'Open the link in <b>Chrome</b>.', a2: 'Menu <kbd>⋮</kbd> → <b>Install app</b> (or “Add to home screen”).', a3: 'Open MyFits from its new icon.',
+    i1: 'Open the link in <b>Safari</b>.', i2: 'Tap <b>Share</b> → <b>Add to Home Screen</b>.', i3: 'Open MyFits from its new icon.',
+    iNote: 'Notifications on iPhone need iOS 16.4 or later and the home-screen app.',
+    dTitle: 'Computer', d1: 'Open the link in Chrome, Edge or Safari.', d2: 'Optional: click the <b>install</b> icon in the address bar.', d3: 'Add photos with “Choose from gallery”.',
+    startTitle: 'Your first 10 minutes',
+    s1: '<b>Create your account</b>: first name, email, password and your city (for the weather). Confirm with the link in your email.',
+    s2: '<b>Add your clothes</b>: <b>Add</b> → <b>📷 Take a photo</b>. A piece laid flat, on a hanger, or a whole outfit you’re wearing. Check the details and save.',
+    s3: '<b>Unlock your outfits</b> with at least 4 tops, 3 bottoms, 2 pairs of shoes and 1 bag (a dress counts as a top and a bottom).',
+    s4: '<b>Open Today</b>: swipe the 3 outfits, give 👍 or 👎, and tap <b>I wore this today</b> on the one you wear.',
+    s5: '<b>Settings</b>: turn on notifications, choose your reminder time, your language, and how you feel the cold. Tap <b>Send me a test notification</b> to check your phone shows it.',
+    s6: '<b>Use it for 2 weeks</b>: each day, mark what you wore (or <b>I wore something else</b>).',
+    premium: '<b>Free up to 20 pieces.</b> Premium (up to 200 pieces) is in <b>test mode</b> during the beta: no real money. To try it, use the test card <code>4242 4242 4242 4242</code>, any future date, any CVC. A real card won’t work.',
+    privacy: '<b>Your data</b><ul><li>Your photos are private: only you can see them.</li><li>To fill in the details, each photo is sent to Google’s Gemini AI. Rules you type are sent as text with short labels of your pieces (no photos).</li><li>Background removal runs on your phone.</li><li>When you’re done: <b>Settings → Delete my account</b> removes everything for good.</li></ul>',
+    feedback: '<b>Tell us what you think</b> after a few days, by replying to the person who invited you: Did you wear the outfits? What was confusing? What would you change? Would you pay €2.99/month for it?',
+  },
+  fr: {
+    h1: 'Vous êtes invitée à la bêta de MyFits',
+    lead: 'MyFits choisit <b>3 tenues par jour dans votre propre garde-robe</b>, selon la météo et selon que vous travaillez ou non. Photographiez vos vêtements une fois ; chaque matin (ou la veille au soir), vos tenues sont prêtes.',
+    open: 'Ouvrir MyFits', qr: 'Sur un ordinateur ? <b>Scannez avec l’appareil photo du téléphone</b> pour ouvrir MyFits dessus.',
+    whatTitle: 'Ce que fait MyFits',
+    f1t: '3 tenues, à votre heure', f1: 'Un rappel à l’heure de votre choix. Choisissez une heure le soir et recevez les tenues du lendemain la veille.',
+    f2t: 'La vraie météo', f2: 'Température ressentie, pluie et vent : un manteau est ajouté quand il le faut. « J’ai souvent froid » rend les tenues plus chaudes.',
+    f3t: 'Une photo, plusieurs pièces', f3: 'Photographiez une tenue portée : chaque pièce est trouvée et ajoutée. Supprimez l’arrière-plan en un geste.',
+    f4t: 'Associer une pièce', f4: 'Envie de porter votre jupe rouge ? Touchez-la et obtenez 3 tenues construites autour.',
+    f5t: 'Mes règles', f5: 'Écrivez vos règles avec vos mots : « jamais le haut rouge avec le pantalon noir », « pas de talons le lundi ».',
+    f6t: 'Au lavage', f6: 'Mettez une pièce au lavage : elle n’est pas proposée pendant 3 jours.',
+    f7t: 'Apprend vos goûts', f7: '👍 / 👎, « Je l’ai portée » et « J’ai porté autre chose » lui apprennent ce que vous aimez et laissent reposer ce que vous venez de porter.',
+    f8t: 'Privé', f8: 'Vous seule voyez votre garde-robe. En français, anglais et allemand.',
+    installTitle: 'L’installer sur votre téléphone (1 minute)',
+    a1: 'Ouvrez le lien dans <b>Chrome</b>.', a2: 'Menu <kbd>⋮</kbd> → <b>Installer l’application</b> (ou « Ajouter à l’écran d’accueil »).', a3: 'Ouvrez MyFits depuis sa nouvelle icône.',
+    i1: 'Ouvrez le lien dans <b>Safari</b>.', i2: 'Touchez <b>Partager</b> → <b>Sur l’écran d’accueil</b>.', i3: 'Ouvrez MyFits depuis sa nouvelle icône.',
+    iNote: 'Sur iPhone, les notifications demandent iOS 16.4 ou plus et l’app sur l’écran d’accueil.',
+    dTitle: 'Ordinateur', d1: 'Ouvrez le lien dans Chrome, Edge ou Safari.', d2: 'Facultatif : cliquez sur l’icône <b>installer</b> dans la barre d’adresse.', d3: 'Ajoutez des photos avec « Choisir dans la galerie ».',
+    startTitle: 'Vos 10 premières minutes',
+    s1: '<b>Créez votre compte</b> : prénom, e-mail, mot de passe et votre ville (pour la météo). Confirmez avec le lien reçu par e-mail.',
+    s2: '<b>Ajoutez vos vêtements</b> : <b>Ajouter</b> → <b>📷 Prendre une photo</b>. Une pièce à plat, sur un cintre, ou une tenue portée. Vérifiez les détails et enregistrez.',
+    s3: '<b>Débloquez vos tenues</b> avec au moins 4 hauts, 3 bas, 2 paires de chaussures et 1 sac (une robe compte comme un haut et un bas).',
+    s4: '<b>Ouvrez Aujourd’hui</b> : faites défiler les 3 tenues, donnez 👍 ou 👎 et touchez <b>Je la porte aujourd’hui</b> sur celle que vous portez.',
+    s5: '<b>Réglages</b> : activez les notifications, choisissez l’heure du rappel, la langue et votre ressenti du froid. Touchez <b>M’envoyer une notification test</b> pour vérifier qu’elle s’affiche.',
+    s6: '<b>Utilisez-la pendant 2 semaines</b> : chaque jour, indiquez ce que vous avez porté (ou <b>J’ai porté autre chose</b>).',
+    premium: '<b>Gratuit jusqu’à 20 pièces.</b> Premium (jusqu’à 200 pièces) est en <b>mode test</b> pendant la bêta : aucun vrai paiement. Pour l’essayer, utilisez la carte test <code>4242 4242 4242 4242</code>, une date future et n’importe quel CVC. Une vraie carte ne fonctionnera pas.',
+    privacy: '<b>Vos données</b><ul><li>Vos photos sont privées : vous seule les voyez.</li><li>Pour remplir les détails, chaque photo est envoyée à l’IA Gemini de Google. Les règles que vous écrivez sont envoyées en texte avec de courtes étiquettes de vos pièces (sans photos).</li><li>La suppression de l’arrière-plan se fait sur votre téléphone.</li><li>À la fin : <b>Réglages → Supprimer mon compte</b> efface tout définitivement.</li></ul>',
+    feedback: '<b>Dites-nous ce que vous en pensez</b> après quelques jours, en répondant à la personne qui vous a invitée : avez-vous porté les tenues ? Qu’est-ce qui était confus ? Que changeriez-vous ? Paieriez-vous 2,99 €/mois ?',
+  },
+  de: {
+    h1: 'Du bist zur MyFits-Beta eingeladen',
+    lead: 'MyFits wählt <b>jeden Tag 3 Outfits aus deinem eigenen Kleiderschrank</b>, passend zum Wetter und zu Arbeit oder Wochenende. Fotografiere deine Kleidung einmal; jeden Morgen (oder am Abend davor) sind deine Outfits bereit.',
+    open: 'MyFits öffnen', qr: 'Am Computer? <b>Mit der Handykamera scannen</b>, um MyFits dort zu öffnen.',
+    whatTitle: 'Was MyFits kann',
+    f1t: '3 Outfits, zu deiner Zeit', f1: 'Eine Erinnerung zur Uhrzeit deiner Wahl. Wähle eine Abendzeit und du bekommst die Outfits für morgen schon am Vorabend.',
+    f2t: 'Echtes Wetter', f2: 'Gefühlte Temperatur, Regen und Wind: Ein Mantel kommt dazu, wenn du ihn brauchst. „Mir ist oft kalt“ macht die Outfits wärmer.',
+    f3t: 'Ein Foto, mehrere Teile', f3: 'Fotografiere ein getragenes Outfit: Jedes Teil wird erkannt und hinzugefügt. Hintergrund entfernen mit einem Tippen.',
+    f4t: 'Ein Teil kombinieren', f4: 'Lust auf deinen roten Rock? Tippe ihn an und bekomme 3 Outfits rund um ihn.',
+    f5t: 'Meine Regeln', f5: 'Schreib Regeln in deinen Worten: „nie das rote Oberteil mit der schwarzen Hose“, „keine Absätze am Montag“.',
+    f6t: 'In der Wäsche', f6: 'Leg ein Teil in die Wäsche und es wird 3 Tage lang nicht vorgeschlagen.',
+    f7t: 'Lernt deinen Geschmack', f7: '👍 / 👎, „Habe ich getragen“ und „Ich habe etwas anderes getragen“ zeigen ihm, was dir gefällt, und lassen gerade Getragenes ruhen.',
+    f8t: 'Privat', f8: 'Nur du siehst deinen Kleiderschrank. Auf Deutsch, Englisch und Französisch.',
+    installTitle: 'Auf dem Handy installieren (1 Minute)',
+    a1: 'Öffne den Link in <b>Chrome</b>.', a2: 'Menü <kbd>⋮</kbd> → <b>App installieren</b> (oder „Zum Startbildschirm hinzufügen“).', a3: 'Öffne MyFits über das neue Symbol.',
+    i1: 'Öffne den Link in <b>Safari</b>.', i2: 'Tippe auf <b>Teilen</b> → <b>Zum Home-Bildschirm</b>.', i3: 'Öffne MyFits über das neue Symbol.',
+    iNote: 'Mitteilungen auf dem iPhone brauchen iOS 16.4 oder neuer und die App auf dem Home-Bildschirm.',
+    dTitle: 'Computer', d1: 'Öffne den Link in Chrome, Edge oder Safari.', d2: 'Optional: Klicke auf das <b>Installieren</b>-Symbol in der Adressleiste.', d3: 'Fotos über „Aus der Galerie wählen“ hinzufügen.',
+    startTitle: 'Deine ersten 10 Minuten',
+    s1: '<b>Erstelle dein Konto</b>: Vorname, E-Mail, Passwort und deine Stadt (für das Wetter). Bestätige mit dem Link in der E-Mail.',
+    s2: '<b>Füge deine Kleidung hinzu</b>: <b>Hinzufügen</b> → <b>📷 Foto aufnehmen</b>. Ein Teil flach, auf dem Bügel oder ein getragenes Outfit. Details prüfen und speichern.',
+    s3: '<b>Schalte deine Outfits frei</b> mit mindestens 4 Oberteilen, 3 Unterteilen, 2 Paar Schuhen und 1 Tasche (ein Kleid zählt als Ober- und Unterteil).',
+    s4: '<b>Öffne Heute</b>: Wische durch die 3 Outfits, gib 👍 oder 👎 und tippe bei dem, das du trägst, auf <b>Heute getragen</b>.',
+    s5: '<b>Einstellungen</b>: Mitteilungen einschalten, Erinnerungszeit, Sprache und Kälteempfinden wählen. Tippe auf <b>Test-Mitteilung senden</b>, um zu prüfen, ob sie erscheint.',
+    s6: '<b>Nutze es 2 Wochen lang</b>: Markiere jeden Tag, was du getragen hast (oder <b>Ich habe etwas anderes getragen</b>).',
+    premium: '<b>Kostenlos bis 20 Teile.</b> Premium (bis zu 200 Teile) ist während der Beta im <b>Testmodus</b>: kein echtes Geld. Zum Ausprobieren nimm die Testkarte <code>4242 4242 4242 4242</code>, ein beliebiges künftiges Datum und eine beliebige Prüfnummer. Eine echte Karte funktioniert nicht.',
+    privacy: '<b>Deine Daten</b><ul><li>Deine Fotos sind privat: Nur du siehst sie.</li><li>Zum Ausfüllen der Details wird jedes Foto an Googles Gemini-KI geschickt. Regeln, die du schreibst, gehen als Text mit kurzen Bezeichnungen deiner Teile raus (ohne Fotos).</li><li>Das Entfernen des Hintergrunds passiert auf deinem Handy.</li><li>Wenn du fertig bist: <b>Einstellungen → Mein Konto löschen</b> löscht alles endgültig.</li></ul>',
+    feedback: '<b>Sag uns, wie du es findest</b>, nach ein paar Tagen, als Antwort an die Person, die dich eingeladen hat: Hast du die Outfits getragen? Was war unklar? Was würdest du ändern? Würdest du 2,99 €/Monat dafür zahlen?',
+  },
+}
+function pick() {
+  try { const s = localStorage.getItem('myfits.lang'); if (s && T[s]) return s } catch (e) {}
+  const n = (navigator.language || 'en').slice(0, 2)
+  return T[n] ? n : 'en'
+}
+function show(lang) {
+  document.documentElement.lang = lang
+  document.title = { en: 'MyFits beta', fr: 'Bêta MyFits', de: 'MyFits-Beta' }[lang]
+  document.querySelectorAll('[data-t]').forEach((el) => { el.innerHTML = T[lang][el.dataset.t] ?? T.en[el.dataset.t] ?? '' })
+  document.querySelectorAll('.langs button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)))
+  try { localStorage.setItem('myfits.lang', lang) } catch (e) {}
+}
+document.querySelectorAll('.langs button').forEach((b) => b.addEventListener('click', () => show(b.dataset.lang)))
+show(pick())
+</script>
+</body>
+</html>

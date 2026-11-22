@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/myfits/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#F5F1EA" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#141C18" media="(prefers-color-scheme: dark)" />
+    <link rel="manifest" href="/myfits/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/myfits/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="MyFits" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <script>
+      // Never run inside another site's frame (protects buttons like "Delete my account" from clickjacking).
+      if (window.top !== window.self) {
+        document.documentElement.style.display = 'none'
+        try { window.top.location = window.self.location.href } catch (e) { /* stays hidden */ }
+      }
+    </script>
+    <title>MyFits</title>
+    <script type="module" crossorigin src="/myfits/assets/index-iysAidSo.js"></script>
+    <link rel="stylesheet" crossorigin href="/myfits/assets/index-ExQSF-gz.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
